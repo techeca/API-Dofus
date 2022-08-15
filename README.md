@@ -2,6 +2,8 @@
 
 API generada con los datos obtenidos con Crawlas.
 
+Demo https://dofus-api.onrender.com/api-docs
+
 ## Falta
 
 - Profesiones
@@ -21,8 +23,6 @@ API generada con los datos obtenidos con Crawlas.
 - `/weapons`
 
 **Obtener datos de item por ID**
-
-| ruta + id
 
 `/consumables/11505`
 
