@@ -14,19 +14,21 @@ import { monsterRouter } from './routes/Monster.js';
 import { mountRouter } from './routes/mount.js';
 
 const app = express();
-const port = 8080;
+const host = process.env.HOST_FRONT;
+const port = process.env.PORT_API;
 
 const swaggerOpt = {
-  explorer:true,
   definition:{
-    swagger: '2.0',
+    //swagger: '2.0',
+    openapi: '3.0.0',
     info: {
       title: 'Dofus API',
       version: '1.0.0',
-      description: 'Simple API'
+      description: 'Idioma: Español'
     },
-    //host: ''
-    //basePath: '',
+    //explorer:true,
+    //host: 'miweb.undominio'
+    //basePath: '/v2',
   },
   apis: ['./routes/*.js'],
 };
@@ -36,9 +38,6 @@ const swaggerSpec = swaggerJSDoc(swaggerOpt)
 export function startServer(){
   app.listen(port, () => {
     console.log(`Dofus API listening on port ${port}`)
-    // API_KEY: ${process.env.API_KEY}
-    //Por aqui debería ir middlewares
-    console.log('CORS habilitado');
     app.use(cors());
     app.use(petRouter);
     app.use(consumableRouter);
@@ -50,9 +49,8 @@ export function startServer(){
     app.use(weaponRouter);
     app.use(monsterRouter);
     app.use(mountRouter);
-    console.log('Rutas cargadas');
+    app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, {explorer: false}));
     console.log('API ON');
-    app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
     }
   )
 }

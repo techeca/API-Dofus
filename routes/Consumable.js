@@ -10,7 +10,7 @@ export const consumableRouter = express.Router();
  * /consumables:
  *   get:
  *     description: Retorna todos los consumibles más sus detalles.
- *     tags: [Consumibles]
+ *     tags: [Consumables]
  *     produces:
  *       - application/json
  *     responses:
@@ -24,7 +24,7 @@ consumableRouter.get('/consumables', getConsumables);
  * /consumables/{ankama_id}:
  *   get:
  *     description: Retorna detalles de consumibles más información relacionada.
- *     tags: [Consumibles]
+ *     tags: [Consumables]
  *     produces:
  *       - application/json
  *     parameters:
