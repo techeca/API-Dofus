@@ -11,7 +11,7 @@ import { resourceRouter } from './routes/Resource.js';
 import { setRouter } from './routes/Set.js';
 import { weaponRouter } from './routes/Weapon.js';
 import { monsterRouter } from './routes/Monster.js';
-import { mountRouter } from './routes/mount.js';
+import { mountRouter } from './routes/Mount.js';
 
 const app = express();
 const host = process.env.HOST_FRONT;
